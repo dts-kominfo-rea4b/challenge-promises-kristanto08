@@ -2,12 +2,12 @@ const { promiseTheaterIXX, promiseTheaterVGC } = require("./external.js");
 
 // TODO: Buat fungsi promiseOutput sesuai ketentuan readme
 
-const promiseOutput = null;
+const emosi = null;
 
 // TODO: Buat fungsi promiseOutput sesuai ketentuan readme
-const simplePromise = new Promise((resolve, reject) => {
+const promiseOutput = new Promise((resolve, reject) => {
   // jika kondisi promiseOutput null maka
-  if (promiseOutput) {
+  if (emosi) {
     const successMassage = 'berhasil';
     resolve(successMassage);
   } else {
@@ -16,7 +16,7 @@ const simplePromise = new Promise((resolve, reject) => {
   }
 });
 
-simplePromise
+promiseOutput
   .then((massage) => console.log(massage))
   .catch((error) => console.log(error));
 
@@ -24,4 +24,3 @@ simplePromise
 module.exports = {
 promiseOutput,
 };
-
