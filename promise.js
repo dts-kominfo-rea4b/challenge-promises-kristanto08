@@ -1,25 +1,32 @@
-const { promiseTheaterIXX, promiseTheaterVGC } = require('./external.js');
+const { promiseTheaterIXX, promiseTheaterVGC } = require("./external.js");
 
-let filmMarah = 0;
-let filmTidakMarah = 0;
-const promiseOutput = (emosi) => {
-  if (emosi === 'marah') {
-    return promiseTheaterIXX().then((value) => {
-      value.forEach((array) => {
-        if (hasil === 'marah') {
-          filmMarah++;
-        } else if (array.hasil === 'tidak marah') {
-          filmTidakMarah++;
-        } else {
-          ('error');
-        }
-      });
-      //console.log(`hasil console: ${filmMarah}`);
-      return filmMarah;
+// TODO: Buat fungsi promiseOutput sesuai ketentuan readme
+
+const promiseOutput = async (stat) => {
+    var x =0;
+    await promiseTheaterIXX().then((value) => 
+    {
+        value.forEach(el => {
+            if (el.hasil==stat)
+            {
+                x+=1;
+            }
+        });
     });
-  }
+    await promiseTheaterVGC().then((value) => 
+    {
+        value.forEach(el => {
+            if (el.hasil==stat)
+            {
+                x+=1;
+            }
+        });
+    });
+    return x;
 };
 
+
+//promiseOutput();
 module.exports = {
   promiseOutput,
 };
